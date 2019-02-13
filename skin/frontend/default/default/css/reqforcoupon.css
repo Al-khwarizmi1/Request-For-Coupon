@@ -1,0 +1,41 @@
+/**
+ * @Author       : Apptha team
+ * @package      : Apptha_Request_Coupon
+ * @copyright    : Copyright (c) 2011 (www.apptha.com)
+ * @license      : http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @Date         : July 2012
+ */
+
+/*
+* Lightbox Popup
+*/
+.black_overlay{display:none;position: fixed;top: 0%;left: 0%;width: 100%;height: 100%;background-color: black;z-index:1001;-moz-opacity: 0.8;opacity:.80;filter: alpha(opacity=80);}
+.white_content {display: none;position: fixed;top: 25%;left: 25%;width: 50%;padding: 16px;border: 16px solid orange;background-color: white;z-index:1002;overflow: auto;}
+/*
+*Request coupon form 
+*/
+
+*{margin:0;padding:0;}
+.white_content {left: 35%;width: 378px;border: 5px solid #666; -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+#requestform label{width: 100px;display: block;float: left;text-align: left;color: #333;font-family: arial;font-weight: bold;}
+#requestform label span{color:red;}
+#requestform{padding: 3px 10px;}
+#req_Name, #req_email, #req_comment{width: 200px;float: left;}
+#req_comment{max-width: 200px;height: 50px;white-space: initial;}
+.clearfix:after {content: "."; display: block;	clear: both;	visibility: hidden;	line-height: 0;	height: 0;}
+.clearfix {	display: inline-block;}
+html[xmlns] .clearfix {display: block;} 
+* html .clearfix {height: 1%;}  
+#requestform li{margin-bottom:15px;clear:both;position:relative;}
+#requestform li #error_first, #requestform li #error_emails{position:absolute; color:red;top: 27px;left: 100px;}
+.black_overlay {background-color: #999;}
+.closebtn{color:#fff;cursor: pointer;display: block;position: absolute;top: 1px;right: 1px;font-weight: bold;border:1px solid #D91928;padding: 0 5px;background: #BF3538;}
+.request_coupon_title{font-weight: bold;margin-top:10px; margin-bottom:10px;font-size: 15px;text-transform: uppercase;}
+@-moz-document url-prefix() {#requestform li #err_message{top: 60px !important;}}
+#requestform li #err_message{position:absolute; color:red; left: 100px;top: 40px; top:40px \0/; *top:40px;width: 170px;}
+#requestform li #error_emails{width: 170px;}
+#req_submit{padding:6px 16px !important;cursor: pointer;text-shadow: 1px 1px white;float: right;margin-right: 13%;text-shadow:none !important;border-radius: 3px;text-transform: uppercase;font-weight: bold !important;font-size: 12px !important;border: 1px solid;           border-color: #CCC #CCC #AAA !important;background-color: #E0E0E0;-moz-box-shadow: inset 0 0 1px #fff;-ms-box-shadow: inset 0 0 1px #fff;-webkit-box-shadow: inset 0 0 1px #fff;box-shadow: inset 0 0 1px #fff;filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#fffafafa,EndColorStr=#ffdcdcdc);background-image: -moz-linear-gradient(top,#FAFAFA 0,gainsboro 100%);background-image: -ms-linear-gradient(top,#FAFAFA 0,gainsboro 100%);background-image: -o-linear-gradient(top,#FAFAFA 0,gainsboro 100%);background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#FAFAFA),color-stop(100%,gainsboro));background-image: -webkit-linear-gradient(top,#FAFAFA 0,gainsboro 100%);background-image: linear-gradient(to bottom,#FAFAFA 0,gainsboro 100%);}
+#req_submit:hover{border-color: #AAA #AAA #999;-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.25),inset 0 0 3px #fff;-ms-box-shadow: 0 1px 2px rgba(0,0,0,0.25),inset 0 0 3px #fff;-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.25),inset 0 0 3px #fff;box-shadow: 0 1px 2px rgba(0,0,0,0.25),inset 0 0 3px #fff;filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#fff0f0f0,EndColorStr=#ffe6e6e6);background-image: -moz-linear-gradient(top,#F0F0F0 0,#E6E6E6 100%);background-image: -ms-linear-gradient(top,#F0F0F0 0,#E6E6E6 100%);background-image: -o-linear-gradient(top,#F0F0F0 0,#E6E6E6 100%);background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#F0F0F0),color-stop(100%,#E6E6E6));background-image: -webkit-linear-gradient(top,#F0F0F0 0,#E6E6E6 100%);background-image: linear-gradient(to bottom,#F0F0F0 0,#E6E6E6 100%);}
+
+/* popup style */
+#formdiv input, #formdiv textarea {margin-top: 4px;border: 1px solid lightGrey;background-color: white;font: 12px arial, helvetica;-moz-box-shadow: inset 0 2px 3px #eee;-webkit-box-shadow: inset 0 2px 3px #eee;box-shadow: inset 0 2px 3px #eee;border-image: initial;padding: 3px 6px;border-radius:3px;}

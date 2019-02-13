@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Apptha_Reqforcoupon>
+            <version>0.1.0</version>
+        </Apptha_Reqforcoupon>
+    </modules>
+    <frontend>
+        <routers>
+            <reqforcoupon>
+                <use>standard</use>
+                <args>
+                    <module>Apptha_Reqforcoupon</module>
+                    <frontName>reqforcoupon</frontName>
+                </args>
+            </reqforcoupon>
+        </routers>
+        <layout>
+            <updates>
+                <reqforcoupon>
+                    <file>reqforcoupon.xml</file>
+                </reqforcoupon>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Apptha_Reqforcoupon>
+                    <files>
+                        <default>Apptha_Request.csv</default>
+                    </files>
+                </Apptha_Reqforcoupon>
+            </modules>
+        </translate>
+    </frontend>
+    <admin>
+        <routers>
+			<reqforcoupon>
+				<use>admin</use>
+				<args>
+					<module>Apptha_Reqforcoupon</module>
+					<frontName>reqforcoupon</frontName>
+				</args>
+			</reqforcoupon>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<reqforcoupon module="reqforcoupon">
+				<title>Request For Coupon</title>
+				<sort_order>71</sort_order>               
+				<children>
+                                    <reqforcoupon module="reqforcoupon">
+						<title>Manage Products</title>
+						<sort_order>0</sort_order>
+						<action>reqforcoupon/adminhtml_reqforcoupon</action>
+					</reqforcoupon>
+                                        <customerreq module="reqforcoupon">
+						<title>Manage Requested Customers</title>
+						<sort_order>1</sort_order>
+						<action>reqforcoupon/adminhtml_customerreq</action>
+					</customerreq>
+					
+				</children>
+			</reqforcoupon>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <reqforcoupon translate="title" module="reqforcoupon">
+                                            <title>Reqforcoupon</title>
+                                        </reqforcoupon>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<reqforcoupon>
+					<file>reqforcoupon.xml</file>
+				</reqforcoupon>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <reqforcoupon>
+                <class>Apptha_Reqforcoupon_Model</class>
+                <resourceModel>reqforcoupon_mysql4</resourceModel>
+            </reqforcoupon>
+            <reqforcoupon_mysql4>
+                <class>Apptha_Reqforcoupon_Model_Mysql4</class>
+                <entities>
+                    <reqforcoupon>
+                        <table>reqforcoupon</table>
+                    </reqforcoupon>
+                </entities>
+            </reqforcoupon_mysql4>
+        </models>
+        <template>
+            <email>
+
+                <reqforcoupon_request_coupon_request_admin_template translate="label" module="reqforcoupon">
+                    <label>Admin Reply Template</label>
+                    <file>requestcoupon/admin_reply.html</file>
+                    <type>html</type>
+                </reqforcoupon_request_coupon_request_admin_template>
+                <reqforcoupon_request_coupon_request_customer_template translate="label" module="reqforcoupon">
+                    <label>Customer Request Template</label>
+                    <file>requestcoupon/customer_message.html</file>
+                    <type>html</type>
+                </reqforcoupon_request_coupon_request_customer_template>
+                  <reqforcoupon_request_coupon_request_autogenerate_template translate="label" module="reqforcoupon">
+                    <label>Auto generate Template</label>
+                    <file>requestcoupon/autogenerate.html</file>
+                    <type>html</type>
+                </reqforcoupon_request_coupon_request_autogenerate_template>
+            </email>
+        </template>
+        <resources>
+            <reqforcoupon_setup>
+                <setup>
+                    <module>Apptha_Reqforcoupon</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </reqforcoupon_setup>
+            <reqforcoupon_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </reqforcoupon_write>
+            <reqforcoupon_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </reqforcoupon_read>
+        </resources>
+        <blocks>
+            <reqforcoupon>
+                <class>Apptha_Reqforcoupon_Block</class>
+            </reqforcoupon>
+        </blocks>
+        <helpers>
+            <reqforcoupon>
+                <class>Apptha_Reqforcoupon_Helper</class>
+            </reqforcoupon>
+        </helpers>
+    </global>
+</config>

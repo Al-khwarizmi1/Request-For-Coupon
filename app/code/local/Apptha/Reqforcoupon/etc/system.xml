@@ -1,0 +1,106 @@
+<?xml version="1.0" ?>
+<config>
+   <tabs>
+        <Apptha translate="label" module="reqforcoupon">
+            <label>Apptha</label>
+            <sort_order>100</sort_order>
+        </Apptha>
+    </tabs>
+    <sections>
+        <reqforcoupon module="reqforcoupon" translate="label">
+            <label>Request For Coupon </label>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <tab>Apptha</tab>
+            <groups>
+                 <request_coupon translate="label">
+                    <label>Request For Coupon </label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                     <activate_apptha_reqforcoupon_enable translate="label">
+                            <label>Enable Request For Coupon</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Show / Hide the  Request Coupon in front end</comment>
+                        </activate_apptha_reqforcoupon_enable>
+                        <request_subject translate="label">
+                            <label>Email Subject</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                             <comment>Enter the email subject message</comment>
+                             <validate>required-entry</validate>
+                            <show_in_store>1</show_in_store>
+                        </request_subject>
+                       <!-- <request_sender_email translate="label">
+                            <label>Email Sender</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </request_sender_email>-->
+                       
+                        <request_admin_template translate="label">
+                            <label>Admin Reply Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </request_admin_template>
+                         <request_customer_template translate="label">
+                            <label>Cutomer Request Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </request_customer_template>
+                         <request_autogenerate_template translate="label">
+                            <label>Auto generate Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </request_autogenerate_template>
+                        <request_admin_email translate="label">
+                            <label>Admin Email Id</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                             <validate>required-entry</validate>
+                            <show_in_store>1</show_in_store>
+                        </request_admin_email>
+                        <request_admin_name translate="label">
+                            <label>Admin Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                             <validate>required-entry</validate>
+                            <show_in_store>1</show_in_store>
+                        </request_admin_name>
+                    </fields>
+                </request_coupon>
+            </groups>
+        </reqforcoupon>
+    </sections>
+</config>

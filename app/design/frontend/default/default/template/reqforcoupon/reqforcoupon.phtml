@@ -1,0 +1,103 @@
+<?php 
+/**
+ * @Author       : Apptha team
+ * @package      : Apptha_Request_Coupon
+ * @copyright    : Copyright (c) 2011 (www.apptha.com)
+ * @license      : http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @Date         : July 2012
+ */
+?>
+<span class="closebtn" onclick="closefun()"><?php echo $this->__('Close'); ?></span>
+<script>
+jQuery(".link-request").html("<?php echo $this->__('Request For Coupon'); ?>");
+jQuery("#req_comment").html("<?php echo $this->__('Write your request'); ?>");
+jQuery("a.link-request").attr("title","<?php echo $this->__('Click to send a request for coupon'); ?>");
+</script>
+<div class="request_coupon_title"> <?php echo $this->__('Request For Coupon'); ?>
+</div>
+<!-- Popup Form Start -->
+<div id="requestform">
+    <ul id="formdiv">
+        <li class="clearfix">
+            <label><?php echo $this->__('Name')?> <span>*</span></label>
+            <input type="text" name="req_Name" id="req_Name" />
+            <label id="error_first"></label>
+        </li>
+        <li class="clearfix">
+            <label><?php echo $this->__('Email')?> <span>*</span></label>
+            <input type="text" name="req_email" id="req_email"   />        
+            <label id="error_emails"> </label>
+        </li>
+        <li class="clearfix">
+            <label><?php echo $this->__('Comment')?> </label>
+            <textarea  name="req_comment" id="req_comment" row="4#req_comment" column="45"></textarea>
+            <label id="err_message"> </label>
+        </li>
+        <li class="clearfix">
+            
+            <input type="hidden" name="productid" value="" id="productid"/>
+            <input type="hidden" name="token" value="" id="token"/>
+            <input type="button"  onclick="return validate();" name="submit" id="req_submit" value="<?php echo $this->__('Request')?>"/>
+        </li>
+    </ul>
+</div>
+<!-- Popup Form End -->
+
+<!--Form Field Validation-->
+
+<script type="text/javascript">
+    
+    //validate field to collect necessary information 
+    function validate()
+    {
+       
+        var RegExpmil = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        if(document.getElementById('req_Name').value == "" )
+        {  
+            document.getElementById('error_first').innerHTML = "<?php echo $this->__('Enter your Name')?>";
+            document.getElementById('req_Name').focus();
+            return false;
+        }
+        if(document.getElementById('req_email').value == "" )
+        {
+            document.getElementById('error_first').innerHTML = " ";
+            document.getElementById('error_emails').innerHTML = "<?php echo $this->__('Enter your email address')?>";
+            document.getElementById('req_email').focus();
+            return false;
+
+        }
+        if(!RegExpmil.test(document.getElementById('req_email').value))
+        {
+            document.getElementById('error_first').innerHTML = " ";
+            document.getElementById('error_emails').innerHTML = "<?php echo $this->__('Invalid email address')?>";
+            document.getElementById('req_email').focus();
+            return false;
+        }
+      
+        var customerName = document.getElementById('req_Name').value;
+        var customerEmail = document.getElementById('req_email').value;
+        var customerComments = document.getElementById('req_comment').value;
+        var productId = document.getElementById('productid').value;
+        var token = document.getElementById('token').value;
+        var req = jQuery.noConflict();
+
+        req.ajax({
+            type: 'POST',
+            url: "<?php echo $this->getUrl('reqforcoupon/index/sendreq') ?>",
+            data: {req_Name:customerName,req_email:customerEmail,req_comment:customerComments,productid:productId,token:token},
+            success: function(data){
+              req("ul.#formdiv").fadeOut("fast", function(){
+                        if(req("#messagefun").length > 0){
+                            req("#messagefun").show();
+                            req("#messagefun").html("<strong>Success! Your feedback has been sent, thanks :)</strong>");
+                        }
+                        else{
+                            req(this).before("<p id='messagefun'><strong>Success! Your feedback has been sent, thanks :)</strong></p>");
+                        }
+                        
+                        setTimeout("closefun()", 1000);
+                    });
+            }
+        });
+    }
+</script>

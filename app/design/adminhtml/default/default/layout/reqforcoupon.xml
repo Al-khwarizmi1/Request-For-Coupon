@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <reqforcoupon_adminhtml_reqforcoupon_index>
+        <reference name="content">
+            <block type="reqforcoupon/adminhtml_reqforcoupon" name="reqforcoupon" />
+        </reference>
+    </reqforcoupon_adminhtml_reqforcoupon_index>
+     <reqforcoupon_adminhtml_customerreq_index>
+        <reference name="content">
+            <block type="reqforcoupon/adminhtml_customerreq" name="customerreq" />
+        </reference>
+    </reqforcoupon_adminhtml_customerreq_index>
+</layout>
